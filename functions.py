@@ -7,6 +7,8 @@ def squared_error_derivative(output, label):
 
 
 def binary_cross_entropy_derivative(output, label):
+    output[output == 0] = 0.000000001
+    output[output == 1] = 0.999999999
     res = -label/output + ((1 - label)/(1 - output))
     return res
 
